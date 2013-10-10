@@ -24,6 +24,8 @@
 - (id)initWithMessageArchivingStorage:(id <XMPPMessageArchivingStorage>)storage;
 - (id)initWithMessageArchivingStorage:(id <XMPPMessageArchivingStorage>)storage dispatchQueue:(dispatch_queue_t)queue;
 
+- (BOOL)shouldArchiveMessage:(XMPPMessage *)message outgoing:(BOOL)isOutgoing xmppStream:(XMPPStream *)xmppStream;
+
 /**
  * XEP-0136 Message Archiving outlines a complex protocol for:
  * 
@@ -98,6 +100,15 @@
  * 
 **/
 - (void)archiveMessage:(XMPPMessage *)message outgoing:(BOOL)isOutgoing xmppStream:(XMPPStream *)stream;
+
+- (void)setMessageIsSendingWithId:(NSString *)messageId;
+- (void)setMessageIsSentWithId:(NSString *)messageId succeeded:(BOOL)success;
+
+- (void)setMessageIsDeletingWithId:(NSString *)messageId;
+- (void)setMessageDeleteFailedWithId:(NSString *)messageId;
+- (void)deleteMessageWithId:(NSString *)messageId;
+
+- (void)clearAllContactsAndMessagesForXMPPStream:(XMPPStream *)stream;
 
 @optional
 

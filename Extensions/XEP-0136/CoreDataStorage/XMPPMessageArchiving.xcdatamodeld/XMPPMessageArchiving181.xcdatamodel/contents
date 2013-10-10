@@ -13,9 +13,14 @@
         <attribute name="bareJidStr" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="composing" attributeType="Boolean" defaultValueString="NO" indexed="YES" syncable="YES"/>
+        <attribute name="deletingMessage" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="failedToDeleteMessage" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="failedToSendMessage" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="message" optional="YES" transient="YES" syncable="YES"/>
+        <attribute name="messageId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="messageStr" attributeType="String" syncable="YES"/>
         <attribute name="outgoing" attributeType="Boolean" defaultValueString="NO" indexed="YES" syncable="YES"/>
+        <attribute name="sendingMessage" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="streamBareJidStr" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="thread" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timestamp" attributeType="Date" indexed="YES" syncable="YES"/>

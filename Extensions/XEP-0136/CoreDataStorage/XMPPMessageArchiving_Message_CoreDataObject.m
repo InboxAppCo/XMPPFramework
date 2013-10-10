@@ -23,6 +23,12 @@
 @dynamic composing;
 @dynamic timestamp;
 @dynamic streamBareJidStr;
+@dynamic messageId;
+
+@dynamic sendingMessage, failedToSendMessage;
+@dynamic deletingMessage, failedToDeleteMessage;
+@dynamic pictureMessage;
+@dynamic screenshot;
 
 #pragma mark Transient message
 
@@ -152,6 +158,66 @@
 - (void)setIsComposing:(BOOL)flag
 {
 	self.composing = [NSNumber numberWithBool:flag];
+}
+
+- (BOOL)isSendingMessage
+{
+	return [self.sendingMessage boolValue];
+}
+
+- (void)setIsSendingMessage:(BOOL)isSendingMessage
+{
+	self.sendingMessage = [NSNumber numberWithBool:isSendingMessage];
+}
+
+- (BOOL)isPictureMessage
+{
+	return [self.pictureMessage boolValue];
+}
+
+-(void)setIsPictureMessage:(BOOL)isPictureMessage
+{
+	self.pictureMessage = [NSNumber numberWithBool:isPictureMessage];
+}
+
+- (BOOL)isScreenshot
+{
+	return [self.screenshot boolValue];
+}
+
+-(void)setIsScreenshot:(BOOL)isScreenshot
+{
+	self.screenshot = [NSNumber numberWithBool:isScreenshot];
+}
+
+- (BOOL)didFailToSendMessage
+{
+	return [self.failedToSendMessage boolValue];
+}
+
+- (void)setDidFailToSendMessage:(BOOL)didFailToSendMessage
+{
+	self.failedToSendMessage = [NSNumber numberWithBool:didFailToSendMessage];
+}
+
+- (BOOL)isDeletingMessage
+{
+	return [self.deletingMessage boolValue];
+}
+
+- (void)setIsDeletingMessage:(BOOL)isDeletingMessage
+{
+	self.deletingMessage = [NSNumber numberWithBool:isDeletingMessage];
+}
+
+- (BOOL)didFailToDeleteMessage
+{
+	return [self.failedToDeleteMessage boolValue];
+}
+
+- (void)setDidFailToDeleteMessage:(BOOL)didFailToDeleteMessage
+{
+	self.failedToDeleteMessage = [NSNumber numberWithBool:didFailToDeleteMessage];
 }
 
 #pragma mark Hooks

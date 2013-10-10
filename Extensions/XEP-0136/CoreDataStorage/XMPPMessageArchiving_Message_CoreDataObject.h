@@ -27,9 +27,29 @@
 @property (nonatomic, strong) NSNumber * composing;   // Use isComposing
 @property (nonatomic, assign) BOOL isComposing;       // Convenience property
 
+@property (nonatomic, strong) NSNumber *sendingMessage;
+@property (nonatomic, assign) BOOL isSendingMessage;
+
+@property (nonatomic, strong) NSNumber *pictureMessage;
+@property (nonatomic, assign) BOOL isPictureMessage;
+
+@property (nonatomic, strong) NSNumber *screenshot;
+@property (nonatomic, assign) BOOL isScreenshot;
+
+@property (nonatomic, strong) NSNumber *failedToSendMessage;
+@property (nonatomic, assign) BOOL didFailToSendMessage;
+
+@property (nonatomic, strong) NSNumber *deletingMessage;
+@property (nonatomic, assign) BOOL isDeletingMessage;
+
+@property (nonatomic, strong) NSNumber *failedToDeleteMessage;
+@property (nonatomic, assign) BOOL didFailToDeleteMessage;
+
 @property (nonatomic, strong) NSDate * timestamp;
 
 @property (nonatomic, strong) NSString * streamBareJidStr;
+
+@property (nonatomic, strong) NSString * messageId;
 
 /**
  * This method is called immediately before the object is inserted into the managedObjectContext.

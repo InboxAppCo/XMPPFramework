@@ -405,20 +405,24 @@
 {
 	XMPPLogTrace();
 	
+	/*
 	if ([self shouldArchiveMessage:message outgoing:YES xmppStream:sender])
 	{
 		[xmppMessageArchivingStorage archiveMessage:message outgoing:YES xmppStream:sender];
 	}
+	*/
 }
 
 - (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message
 {
 	XMPPLogTrace();
 	
+	/*
 	if ([self shouldArchiveMessage:message outgoing:NO xmppStream:sender])
 	{
 		[xmppMessageArchivingStorage archiveMessage:message outgoing:NO xmppStream:sender];
 	}
+	*/
 }
 
 @end
