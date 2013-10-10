@@ -735,7 +735,14 @@ static NSMutableSet *databaseFileNames;
 	{
 		XMPPLogVerbose(@"%@: %@ - Merging changes into mainThreadManagedObjectContext", THIS_FILE, THIS_METHOD);
 		
-		dispatch_async(dispatch_get_main_queue(), ^{
+		dispatch_async(dispatch_get_main_queue(), ^
+		{
+			// Fault in all updated objects
+			NSArray* updates = [[notification.userInfo objectForKey:NSUpdatedObjectsKey] allObjects];
+			for (NSInteger i = [updates count]-1; i >= 0; i--)
+			{
+				[[mainThreadManagedObjectContext objectWithID:[[updates objectAtIndex:i] objectID]] willAccessValueForKey:nil];
+			}
 			
 			[mainThreadManagedObjectContext mergeChangesFromContextDidSaveNotification:notification];
 			[self mainThreadManagedObjectContextDidMergeChanges];
