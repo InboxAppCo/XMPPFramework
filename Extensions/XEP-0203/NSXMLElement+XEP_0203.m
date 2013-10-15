@@ -51,7 +51,10 @@
 		//
 		// Thankfully there is already an implementation that takes into account all these possibilities.
 		
-		//stampValue = [NSString stringWithFormat:@"%@Z",[stampValue substringToIndex:23]];
+		if (stampValue.length >= 20)
+		{
+			stampValue = [NSString stringWithFormat:@"%@Z",[stampValue substringToIndex:19]];
+		}
 		
 		return [XMPPDateTimeProfiles parseDateTime:stampValue];
 	}

@@ -459,7 +459,7 @@
 	NSString *utcValue = [df stringFromDate:date];
 	
 	
-	NSInteger tzoInSeconds = [[NSTimeZone localTimeZone] secondsFromGMTForDate:date];
+	NSInteger tzoInSeconds = [[NSTimeZone systemTimeZone] secondsFromGMTForDate:date];
 	
 	NSInteger tzoH = tzoInSeconds / (60 * 60);
 	NSInteger tzoS = tzoInSeconds % (60 * 60);
